@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+private:
+    int rollNumber;
+    string firstName;
+    string lastName;
+    string studentClass;
+    float marks;
+    char grade;
+
+public:
+    Student()
+    {
+        rollNumber = 0;
+        firstName = "Not Assigned";
+        lastName = "Not Assigned";
+        studentClass = "None";
+        marks = 0;
+        grade = 'F';
+    }
+
+    void display()
+    {
+        cout << "Roll Number: " << rollNumber << endl;
+        cout << "First Name: " << firstName << endl;
+        cout << "Last Name: " << lastName << endl;
+        cout << "Class: " << studentClass << endl;
+        cout << "Marks: " << marks << endl;
+        cout << "Grade: " << grade << endl;
+    }
+};
+
+int main()
+{
+    Student s1;
+
+    cout << "Default Student Information\n";
+    s1.display();
+
+    return 0;
+}
