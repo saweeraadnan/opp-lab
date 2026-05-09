@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Capital
+{
+private:
+    static int count;
+
+public:
+    Capital()
+    {
+        count++;
+    }
+
+    void show()
+    {
+        cout << "Number of objects created = "
+             << count << endl;
+    }
+};
+
+int Capital::count = 0;
+
+int main()
+{
+    Capital x, y, z;
+
+    x.show();
+
+    return 0;
+}
