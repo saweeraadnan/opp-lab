@@ -1,0 +1,67 @@
+#include <iostream>
+using namespace std;
+
+class ComplexNumber
+{
+private:
+    double realPart;
+    double imaginaryPart;
+
+public:
+    ComplexNumber()
+    {
+        realPart = 0;
+        imaginaryPart = 0;
+    }
+
+    ComplexNumber(double r, double i)
+    {
+        realPart = r;
+        imaginaryPart = i;
+    }
+
+    ComplexNumber add(const ComplexNumber &c)
+    {
+        return ComplexNumber(realPart + c.realPart,
+                             imaginaryPart + c.imaginaryPart);
+    }
+
+    ComplexNumber sub(const ComplexNumber &c)
+    {
+        return ComplexNumber(realPart - c.realPart,
+                             imaginaryPart - c.imaginaryPart);
+    }
+
+    ComplexNumber mul(const ComplexNumber &c)
+    {
+        return ComplexNumber(
+            (realPart * c.realPart) - (imaginaryPart * c.imaginaryPart),
+            (realPart * c.imaginaryPart) + (imaginaryPart * c.realPart));
+    }
+
+    void print() const
+    {
+        cout << realPart << " + " << imaginaryPart << "j" << endl;
+    }
+};
+
+int main()
+{
+    ComplexNumber c1(2, 3);
+    ComplexNumber c2(4, 5);
+
+    ComplexNumber sum = c1.add(c2);
+    ComplexNumber diff = c1.sub(c2);
+    ComplexNumber product = c1.mul(c2);
+
+    cout << "Addition: ";
+    sum.print();
+
+    cout << "Subtraction: ";
+    diff.print();
+
+    cout << "Multiplication: ";
+    product.print();
+
+    return 0;
+}
