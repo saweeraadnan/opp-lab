@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+class LocalPhone
+{
+protected:
+    string phone;
+
+public:
+    void inputPhone()
+    {
+        cout << "Enter Local Phone Number: ";
+        cin >> phone;
+    }
+
+    void displayPhone()
+    {
+        cout << "Phone Number: " << phone << endl;
+    }
+};
+
+class NatPhone : public LocalPhone
+{
+protected:
+    string cityCode;
+
+public:
+    void inputCityCode()
+    {
+        cout << "Enter City Code: ";
+        cin >> cityCode;
+    }
+
+    void displayCityCode()
+    {
+        cout << "City Code: " << cityCode << endl;
+    }
+};
+
+class IntPhone : public NatPhone
+{
+private:
+    string countryCode;
+
+public:
+    void inputCountryCode()
+    {
+        cout << "Enter Country Code: ";
+        cin >> countryCode;
+    }
+
+    void displayCountryCode()
+    {
+        cout << "Country Code: " << countryCode << endl;
+    }
+};
+
+int main()
+{
+    IntPhone obj;
+
+    obj.inputPhone();
+    obj.inputCityCode();
+    obj.inputCountryCode();
+
+    cout << "\n--- Phone Details ---\n";
+    obj.displayPhone();
+    obj.displayCityCode();
+    obj.displayCountryCode();
+
+    return 0;
+}
