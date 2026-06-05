@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+protected:
+    string name;
+    int number;
+    string hireDate;
+
+public:
+    Employee(string n="", int num=0, string hd="")
+    {
+        name=n;
+        number=num;
+        hireDate=hd;
+    }
+
+    void display()
+    {
+        cout<<"Name: "<<name<<endl;
+        cout<<"Number: "<<number<<endl;
+        cout<<"Hire Date: "<<hireDate<<endl;
+    }
+};
+
+class ProductionWorker : public Employee
+{
+private:
+    int shift;
+    double payRate;
+
+public:
+    ProductionWorker(string n,int num,string hd,int s,double p)
+        : Employee(n,num,hd)
+    {
+        shift=s;
+        payRate=p;
+    }
+
+    void display()
+    {
+        Employee::display();
+        cout<<"Shift: "<<shift<<endl;
+        cout<<"Hourly Pay: "<<payRate<<endl;
+    }
+};
+
+int main()
+{
+    ProductionWorker p("Ali",101,"10-05-2024",1,1500);
+
+    p.display();
+
+    return 0;
+}
