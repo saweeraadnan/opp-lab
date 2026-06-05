@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+protected:
+    string name;
+    int number;
+    string hireDate;
+
+public:
+    Employee(string n,int num,string hd)
+    {
+        name=n;
+        number=num;
+        hireDate=hd;
+    }
+};
+
+class ShiftSupervisor : public Employee
+{
+private:
+    double salary;
+    double bonus;
+
+public:
+    ShiftSupervisor(string n,int num,string hd,
+                    double sal,double bon)
+        : Employee(n,num,hd)
+    {
+        salary=sal;
+        bonus=bon;
+    }
+
+    void display()
+    {
+        cout<<"Name: "<<name<<endl;
+        cout<<"Employee Number: "<<number<<endl;
+        cout<<"Hire Date: "<<hireDate<<endl;
+        cout<<"Annual Salary: "<<salary<<endl;
+        cout<<"Annual Bonus: "<<bonus<<endl;
+    }
+};
+
+int main()
+{
+    ShiftSupervisor s("Ahmed",102,"01-01-2023",
+                      500000,50000);
+
+    s.display();
+
+    return 0;
+}
