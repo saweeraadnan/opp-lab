@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+class Teacher
+{
+protected:
+    string tName, tAddress;
+    int tAge;
+
+public:
+    void inputTeacher()
+    {
+        cout << "Enter Teacher Name: ";
+        cin.ignore();
+        getline(cin, tName);
+
+        cout << "Enter Teacher Age: ";
+        cin >> tAge;
+
+        cin.ignore();
+        cout << "Enter Teacher Address: ";
+        getline(cin, tAddress);
+    }
+
+    void displayTeacher()
+    {
+        cout << "\nTeacher Name: " << tName << endl;
+        cout << "Teacher Age: " << tAge << endl;
+        cout << "Teacher Address: " << tAddress << endl;
+    }
+};
+
+class Writer
+{
+protected:
+    string wName, wAddress;
+    int books;
+
+public:
+    void inputWriter()
+    {
+        cout << "\nEnter Writer Name: ";
+        getline(cin, wName);
+
+        cout << "Enter Writer Address: ";
+        getline(cin, wAddress);
+
+        cout << "Enter Number of Books: ";
+        cin >> books;
+        cin.ignore();
+    }
+
+    void displayWriter()
+    {
+        cout << "\nWriter Name: " << wName << endl;
+        cout << "Writer Address: " << wAddress << endl;
+        cout << "Books Written: " << books << endl;
+    }
+};
+
+class Scholar : public Teacher, public Writer
+{
+public:
+    void displayScholar()
+    {
+        cout << "\n===== Scholar Information =====\n";
+        displayTeacher();
+        displayWriter();
+    }
+};
+
+int main()
+{
+    Scholar s;
+
+    s.inputTeacher();
+    s.inputWriter();
+
+    s.displayScholar();
+
+    return 0;
+}
